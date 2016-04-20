@@ -1,32 +1,75 @@
 {
+  "_args": [
+    [
+      "react-native-splashscreen@git+https://github.com/subtirelumihail/react-native-splashscreen.git",
+      "/Users/Mihai/Projects/ReactNative/MedFind"
+    ]
+  ],
+  "_from": "git+https://github.com/subtirelumihail/react-native-splashscreen.git",
+  "_id": "react-native-splashscreen@1.0.2",
+  "_inCache": true,
+  "_installable": true,
+  "_location": "/react-native-splashscreen",
+  "_phantomChildren": {},
+  "_requested": {
+    "hosted": {
+      "directUrl": "https://raw.githubusercontent.com/subtirelumihail/react-native-splashscreen/master/package.json",
+      "gitUrl": "git://github.com/subtirelumihail/react-native-splashscreen.git",
+      "httpsUrl": "git+https://github.com/subtirelumihail/react-native-splashscreen.git",
+      "shortcut": "github:subtirelumihail/react-native-splashscreen",
+      "ssh": "git@github.com:subtirelumihail/react-native-splashscreen.git",
+      "sshUrl": "git+ssh://git@github.com/subtirelumihail/react-native-splashscreen.git",
+      "type": "github"
+    },
     "name": "react-native-splashscreen",
-        "version": "1.0.2",
-        "description": "A splashscreen for react-native, hide when application loaded",
-        "main": "index.js",
-        "author": {
-            "name": "YunJiang.Fang",
-            "email": "42550564@qq.com"
-        },
-        "license": "MIT",
-        "keywords": [
-            "react-native",
-            "react-component",
-            "ios",
-            "android",
-            "splashscreen",
-            "splash",
-            "launchui",
-            "show",
-            "hide",
-            "remobile",
-            "mobile"
-        ],
-        "homepage": "https://github.com/remobile/react-native-splashscreen",
-        "bugs": {
-            "url": "https://github.com/remobile/react-native-splashscreen/issues"
-        },
-        "repository": {
-            "type": "git",
-            "url": "git://github.com/remobile/react-native-splashscreen.git"
-        }
+    "raw": "react-native-splashscreen@git+https://github.com/subtirelumihail/react-native-splashscreen.git",
+    "rawSpec": "git+https://github.com/subtirelumihail/react-native-splashscreen.git",
+    "scope": null,
+    "spec": "git+https://github.com/subtirelumihail/react-native-splashscreen.git",
+    "type": "hosted"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "git+https://github.com/subtirelumihail/react-native-splashscreen.git#832e498e2c0fe55df00b46ea4d754bcf7f62f8b0",
+  "_shasum": "0b40274e21391ee58b528b533f1889a50b36d817",
+  "_shrinkwrap": null,
+  "_spec": "react-native-splashscreen@git+https://github.com/subtirelumihail/react-native-splashscreen.git",
+  "_where": "/Users/Mihai/Projects/ReactNative/MedFind",
+  "author": {
+    "email": "42550564@qq.com",
+    "name": "YunJiang.Fang"
+  },
+  "bugs": {
+    "url": "https://github.com/remobile/react-native-splashscreen/issues"
+  },
+  "dependencies": {},
+  "description": "A splashscreen for react-native, hide when application loaded",
+  "devDependencies": {},
+  "gitHead": "832e498e2c0fe55df00b46ea4d754bcf7f62f8b0",
+  "homepage": "https://github.com/remobile/react-native-splashscreen",
+  "keywords": [
+    "react-native",
+    "react-component",
+    "ios",
+    "android",
+    "splashscreen",
+    "splash",
+    "launchui",
+    "show",
+    "hide",
+    "remobile",
+    "mobile"
+  ],
+  "license": "MIT",
+  "main": "index.js",
+  "name": "react-native-splashscreen",
+  "optionalDependencies": {},
+  "readme": "# React Native SplashScreen (remobile)\nA splashscreen for react-native, hide when application loaded\n\n## Installation\n```sh\nnpm install @remobile/react-native-splashscreen --save\n```\n### Installation (iOS)\n* Drag RCTSplashScreen.xcodeproj to your project on Xcode.\n* Click on your main project file (the one that represents the .xcodeproj) select Build Phases and drag libRCTSplashScreen.a from the Products folder inside the RCTSplashScreen.xcodeproj.\n* Look for Header Search Paths and make sure it contains $(SRCROOT)/../../../react-native/React as recursive.\n\n* In your project, Look for Header Search Paths and make sure it contains $(SRCROOT)/../node_modules/@remobile/react-native-splashscreen/ios/RCTSplashScreen\n\n* delete your project's LaunchScreen.xib\n* Dray SplashScreenResource to your project [if you want change image, replace splash.png]\n\n* In AppDelegate.m\n```objc\n...\n#import \"RCTSplashScreen.h\" //<--- import\n...\nRCTRootView *rootView = [[RCTRootView alloc] initWithBundleURL:jsCodeLocation\n                                                      moduleName:@\"KitchenSink\"\n                                               initialProperties:nil\n                                                   launchOptions:launchOptions];\n  [RCTSplashScreen show:rootView]; //<--- add show SplashScreen\n\n  self.window = [[UIWindow alloc] initWithFrame:[UIScreen mainScreen].bounds];\n  UIViewController *rootViewController = [[UIViewController alloc] init];\n  rootViewController.view = rootView;\n  self.window.rootViewController = rootViewController;\n  [self.window makeKeyAndVisible];\n  return YES;\n```\n\n\n### Installation (Android)\n```gradle\n...\ninclude ':react-native-splashscreen'\nproject(':react-native-splashscreen').projectDir = new File(rootProject.projectDir, '../node_modules/react-native-splashscreen/android')\n```\n\n* In `android/app/build.gradle`\n\n```gradle\n...\ndependencies {\n    ...\n    compile project(':react-native-splashscreen')\n}\n```\n* if you want change image, replace res/drawable/splash.png\n\n* register module (in MainActivity.java)\n\n```java\nimport com.remobile.splashscreen.*;  // <--- import\n\npublic class MainActivity extends Activity implements DefaultHardwareBackBtnHandler {\n  ......\n  @Override\n  protected void onCreate(Bundle savedInstanceState) {\n    super.onCreate(savedInstanceState);\n    mSplashScreenPackage = ;// <--- alloc package\n\n    mReactInstanceManager = ReactInstanceManager.builder()\n      .setApplication(getApplication())\n      .setBundleAssetName(\"index.android.bundle\")\n      .setJSMainModuleName(\"index.android\")\n      .addPackage(new MainReactPackage())\n      .addPackage(new RCTSplashScreenPackage(this))              // <------ add here\n      .setUseDeveloperSupport(BuildConfig.DEBUG)\n      .setInitialLifecycleState(LifecycleState.RESUMED)\n      .build();\n\n    mReactRootView.startReactApplication(mReactInstanceManager, \"ExampleRN\", null);\n\n    setContentView(mReactRootView);\n  }\n\n  ......\n}\n```\n\n### Screencasts\n![gif](https://github.com/remobile/react-native-splashscreen/blob/master/screencasts/splash.gif)\n\n## Usage\n\n### Example\n```js\n'use strict';\nvar React = require('react-native');\nvar {\n    AppRegistry,\n    View,\n    Text,\n} = React;\nvar SplashScreen = require('@remobile/react-native-splashscreen');\n\nvar KitchenSink = React.createClass({\n    componentDidMount: function() {\n        SplashScreen.hide();\n    },\n    render() {\n        return(\n            <View>\n                <Text>\n                    fangyunjiang is a good developer!\n                </Text>\n            </View>\n        );\n    }\n});\n\nAppRegistry.registerComponent('KitchenSink', () => KitchenSink);\n```\n\n\n### methods\n- hide() hide SplashScreen\n",
+  "readmeFilename": "README.md",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/remobile/react-native-splashscreen.git"
+  },
+  "version": "1.0.2"
 }
